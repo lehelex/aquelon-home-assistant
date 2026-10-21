@@ -59,5 +59,5 @@ The controller continues to manage its own operation and safety protections.
 Run only one app instance for each controller. Keep Home Assistant and its
 backups protected because the app configuration includes the owner PIN.
 
-[Configuration and troubleshooting](aquelon_local/DOCS.md) |
-[Changelog](aquelon_local/CHANGELOG.md)
+[Configuration and troubleshooting](https://github.com/lehelex/aquelon-home-assistant/blob/main/aquelon_local/DOCS.md) |
+[Changelog](https://github.com/lehelex/aquelon-home-assistant/blob/main/aquelon_local/CHANGELOG.md)
