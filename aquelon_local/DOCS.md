@@ -1,8 +1,7 @@
 # AQUELON Local
 
 Connect your AQUELON V2 controller directly to Home Assistant's local MQTT
-broker. The bridge runs here, inside Home Assistant OS. No Unraid server,
-external bridge container, cloud API account or firmware update is needed.
+broker.
 
 ## Configure
 
@@ -44,7 +43,7 @@ timed request, separate from the combined pump output.
 
 Existing automatic shutoff, bookings and hardware protections remain in the
 controller. This app does not expose direct heater/pump relay commands,
-chemical dosing, fault acknowledgement, service overrides or OTA.
+chemical dosing, fault acknowledgement, service overrides.
 
 ## Credentials and permissions
 
