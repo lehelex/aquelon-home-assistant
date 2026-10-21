@@ -1,0 +1,20 @@
+configuration:
+  controller_url:
+    name: Controller address
+    description: Local HTTP address of your controller. Reserve this address in your router.
+  device_id:
+    name: Controller device ID
+    description: Immutable AQUELON device ID; keeps the same entities across Wi-Fi/Ethernet and panel changes.
+  name:
+    name: Device name
+  control_enabled:
+    name: Enable control
+    description: Uses the existing controller owner PIN. Switching this off is a separate read-only installation mode.
+  owner_pin:
+    name: Controller owner PIN
+    description: Existing six-digit PIN. Required when control is enabled; never enter the Home Assistant password here.
+  poll_seconds:
+    name: Refresh interval in seconds
+  discovery_prefix:
+    name: MQTT discovery prefix
+    description: Keep homeassistant unless the MQTT integration uses another prefix.

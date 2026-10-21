@@ -1,0 +1,20 @@
+configuration:
+  controller_url:
+    name: Vezérlő helyi címe
+    description: A vezérlő helyi HTTP-címe. A routerben célszerű rögzíteni.
+  device_id:
+    name: Vezérlő eszközazonosítója
+    description: Az állandó AQUELON-azonosító; hálózat- és panelcsere mellett is megőrzi az entitásokat.
+  name:
+    name: Eszköz neve
+  control_enabled:
+    name: Vezérlés engedélyezése
+    description: A meglévő tulajdonosi PIN-t használja. Kikapcsolva külön, csak olvasási telepítési mód.
+  owner_pin:
+    name: Vezérlő tulajdonosi PIN-je
+    description: A meglévő hatjegyű PIN; engedélyezett vezérlésnél kötelező. Ide nem a HA-jelszó kerül.
+  poll_seconds:
+    name: Frissítési időköz másodpercben
+  discovery_prefix:
+    name: MQTT felismerési előtag
+    description: Maradjon homeassistant, ha az MQTT-integrációban nem állítottál be mást.

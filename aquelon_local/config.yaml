@@ -1,0 +1,31 @@
+name: AQUELON Local
+version: "0.2.1"
+slug: aquelon_local
+description: Local AQUELON controller integration with automatic MQTT discovery
+url: https://github.com/lehelex/aquelon-home-assistant
+arch:
+  - amd64
+  - aarch64
+startup: application
+boot: auto
+init: true
+services:
+  - mqtt:need
+options:
+  controller_url: http://192.168.1.100
+  device_id: "000000000000"
+  name: AQUELON
+  control_enabled: true
+  owner_pin: ""
+  poll_seconds: 5
+  discovery_prefix: homeassistant
+schema:
+  controller_url: url
+  device_id: match(^[a-f0-9]{12,32}$)
+  name: str
+  control_enabled: bool
+  owner_pin: password
+  poll_seconds: int(3,10)
+  discovery_prefix: str
+homeassistant: "2026.10.0"
+image: ghcr.io/lehelex/aquelon-local
