@@ -65,5 +65,4 @@ portját az internetre. PIN-t, jelszót és teljes konfigurációt ne tegyél Gi
 ## A forrás láthatósága
 
 Ez a nyilvános tároló kizárólag telepítési leírókat és dokumentációt tartalmaz.
-Az AQUELON Local saját forrása és buildfolyamata privát. A HA kész, bytecode-ot
-tartalmazó konténerképet tölt le; ez nem jelent teljes visszafejtés elleni védelmet.
+Az AQUELON Local saját forrása és buildfolyamata privát.
