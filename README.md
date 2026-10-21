@@ -1,68 +1,63 @@
-# AQUELON Local – Home Assistant
+# AQUELON Local for Home Assistant
 
-Az AQUELON vezérlő helyi Home Assistant-kiegészítője. A saját HA-gépeden fut,
-a saját helyi MQTT-szolgáltatásodat használja. A normál adatúthoz nem szükséges
-az AQUELON felhője vagy külön összekötő szerver.
+Connect your AQUELON controller to Home Assistant using MQTT discovery.
+View temperatures and operating status, adjust the Comfort target, and control
+timed functions from your Home Assistant dashboards and automations.
 
-[![Hozzáadás a Home Assistanthoz](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Flehelex%2Faquelon-home-assistant)
+[![Add repository to Home Assistant](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Flehelex%2Faquelon-home-assistant)
 
-Tároló címe: `https://github.com/lehelex/aquelon-home-assistant`
+Repository URL: `https://github.com/lehelex/aquelon-home-assistant`
 
-## Telepítés
+## Requirements
 
-1. Home Assistant OS alatt legyen működő Mosquitto/MQTT-szolgáltatás és a HA
-   beépített MQTT-integrációja. Minimum HA Core: 2026.10.0.
-2. A fenti gombbal add hozzá ezt a tárolót, vagy a Beállítások → Kiegészítők /
-   Apps → Tárolók menüben add meg a címét.
-3. Telepítsd az **AQUELON Local** kiegészítőt.
-4. A beállításokban add meg a saját vezérlőd helyi címét, állandó
-   eszközazonosítóját és nevét. A példacím/all-zero ID nem automatikus felismerés.
-5. Vezérléshez add meg a készülék meglévő tulajdonosi PIN-jét. Ide nem a
-   HA-jelszó és nem a PWA-jelszó kerül. Csak megfigyeléshez kapcsold ki a
-   Vezérlés engedélyezése opciót.
-6. Mentés, majd Indítás. Az eszköz az MQTT-integráció alatt jelenik meg.
+- Home Assistant OS with Supervisor and Home Assistant Core 2026.10.0 or later.
+- An amd64 or aarch64 Home Assistant host.
+- A running MQTT service, such as the Mosquitto broker app, and Home Assistant's
+  MQTT integration.
+- An AQUELON controller reachable from Home Assistant on your local network.
 
-Az MQTT-jelszót a kiegészítő automatikusan a HA Supervisor szolgáltatásától kapja.
-Nem kell a vezérlő központi MQTT-beállítását átírni. A routerben foglald le a
-vezérlő IP-címét. A kiegészítő egy vezérlőt kezel.
+## Installation
 
-## Mit kapsz?
+1. Add this repository using the button above, or enter its URL in the
+   Home Assistant app store's repository settings.
+2. Install **AQUELON Local**.
+3. Open its configuration and enter your controller's address, device ID, and
+   preferred device name. Replace both example values with your own details.
+4. To enable control, enter the controller's existing six-digit owner PIN.
+   For monitoring only, turn off **Enable control**.
+5. Save the configuration, then start the app.
+6. Find your AQUELON device under **Settings > Devices & services > MQTT**.
 
-20 entitást: víz- és kültéri hőmérséklet, páratartalom, célértékek, üzemmód,
-Komfort-célérték állítása, időzített kényelmi kapcsolók, kézi keringetési kérés,
-kimeneti és hibajelzések, diagnosztika. A fűtés/pumpa állapota információ;
-nincs közvetlen fűtő- vagy szivattyúrelé-kapcsoló. A Temper célértéke egyelőre
-csak olvasható. Foglalás, vegyszer, hibanyugtázás, szerviz-felülbírálat 
-nem része ennek az integrációnak.
+The app obtains its MQTT connection from Home Assistant Supervisor. No separate
+MQTT username or password is required in the app configuration. Reserve your
+controller's IP address in your router so it remains reachable.
 
-A vezérlő védelmei, foglalásai és automatikus kikapcsolásai változatlanul
-működnek. A HA leállása nem állítja le a készülék önálló vezérlését. Nincs
-offline parancssor vagy régi parancsok visszajátszása.
+## Available entities
 
-## Már működő helyi/önálló összekötő cseréje
+With control enabled, the app provides 20 entities covering:
 
-Az új kiegészítőt előbb telepítsd és konfiguráld, indítás nélkül. Állítsd le a
-régit, kapcsold ki az automatikus indulását, majd indítsd az újat. A két példány
-nem futhat egyszerre ugyanahhoz a készülékhez. Őrizd meg a készülékazonosítót,
-a discovery-előtagot és a vezérlés/csak megfigyelés módot: így megmaradnak az
-entitásazonosítók, előzmények és automatizálási hivatkozások. A HA MQTT-eszközt
-nem kell törölni. A helyi `local_aquelon_local` és a tárolós app külön telepítés.
+- Water temperature, outdoor temperature and humidity, and temperature targets.
+- Off, Temper, and Comfort operating modes, plus Comfort target adjustment.
+- Timed lighting, mood lighting, aeration, massage, and manual circulation.
+- Circulation and heating status, fault indications, and diagnostics.
 
-## Frissítés és adatvédelem
+The Temper target is read-only. Heating and circulation output entities report
+status; they do not directly switch the heater or pump relays. Manual circulation
+is a timed request and may differ from the pump's combined operating status.
 
-A HA a tároló új verzióját frissítésként jelzi. A kiadások kész amd64/ARM64
-képet használnak; a felhasználó gépén nem kell forrást fordítani. A telepítéshez
-és frissítéshez internet kell, a normál helyi adatúthoz nem.
+## Operation and updates
 
-A PIN a saját HA védett appbeállításában marad. A maszkolt mező nem
-lemeztitkosítás: a HA-t és mentéseit védd. A készülék meglévő helyi HTTP
-bejelentkezése megbízható LAN-t feltételez. Ne nyisd ki az eszköz HTTP/MQTT
-portját az internetre. PIN-t, jelszót és teljes konfigurációt ne tegyél GitHub-issue-ba.
+Communication between Home Assistant, MQTT, and the controller stays on your
+local network. Internet access is required to install and update the app, but
+not for normal operation. Updates are provided through the Home Assistant app
+store as prebuilt images; no local compilation or GitHub account is required.
 
-[Részletes dokumentáció (EN)](aquelon_local/DOCS.md) ·
-[Kiadások](aquelon_local/CHANGELOG.md)
+If the controller or MQTT becomes unreachable, the affected entities become
+unavailable. The app restores discovery and current state after reconnection.
+The controller continues to manage its own operation and safety protections.
 
-## A forrás láthatósága
+Run only one app instance for each controller. Keep Home Assistant and its
+backups protected because the app configuration includes the owner PIN.
 
-Ez a nyilvános tároló kizárólag telepítési leírókat és dokumentációt tartalmaz.
-Az AQUELON Local saját forrása és buildfolyamata privát.
+[Configuration and troubleshooting](aquelon_local/DOCS.md) |
+[Changelog](aquelon_local/CHANGELOG.md)

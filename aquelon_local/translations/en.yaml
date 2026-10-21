@@ -4,7 +4,7 @@ configuration:
     description: Local HTTP address of your controller. Reserve this address in your router.
   device_id:
     name: Controller device ID
-    description: Immutable AQUELON device ID; keeps the same entities across Wi-Fi/Ethernet and panel changes.
+    description: Permanent AQUELON device ID; keeps Home Assistant entity identifiers stable.
   name:
     name: Device name
   control_enabled:
