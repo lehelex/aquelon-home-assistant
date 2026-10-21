@@ -1,6 +1,6 @@
 # AQUELON Local – Home Assistant
 
-Az AQUELON V2 vezérlő helyi Home Assistant-kiegészítője. A saját HA-gépeden fut,
+Az AQUELON vezérlő helyi Home Assistant-kiegészítője. A saját HA-gépeden fut,
 a saját helyi MQTT-szolgáltatásodat használja. A normál adatúthoz nem szükséges
 az AQUELON felhője vagy külön összekötő szerver.
 
@@ -24,7 +24,7 @@ Tároló címe: `https://github.com/lehelex/aquelon-home-assistant`
 
 Az MQTT-jelszót a kiegészítő automatikusan a HA Supervisor szolgáltatásától kapja.
 Nem kell a vezérlő központi MQTT-beállítását átírni. A routerben foglald le a
-vezérlő IP-címét. A kiegészítő egy vezérlőt kezel; a kijelző P4/S3 típusa nem számít.
+vezérlő IP-címét. A kiegészítő egy vezérlőt kezel.
 
 ## Mit kapsz?
 
@@ -32,12 +32,12 @@ vezérlő IP-címét. A kiegészítő egy vezérlőt kezel; a kijelző P4/S3 tí
 Komfort-célérték állítása, időzített kényelmi kapcsolók, kézi keringetési kérés,
 kimeneti és hibajelzések, diagnosztika. A fűtés/pumpa állapota információ;
 nincs közvetlen fűtő- vagy szivattyúrelé-kapcsoló. A Temper célértéke egyelőre
-csak olvasható. Foglalás, vegyszer, hibanyugtázás, szerviz-felülbírálat és OTA
+csak olvasható. Foglalás, vegyszer, hibanyugtázás, szerviz-felülbírálat 
 nem része ennek az integrációnak.
 
 A vezérlő védelmei, foglalásai és automatikus kikapcsolásai változatlanul
 működnek. A HA leállása nem állítja le a készülék önálló vezérlését. Nincs
-offline parancssor vagy régi parancsok visszajátszása. A PWA párhuzamosan használható.
+offline parancssor vagy régi parancsok visszajátszása.
 
 ## Már működő helyi/önálló összekötő cseréje
 
