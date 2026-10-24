@@ -34,16 +34,22 @@ controller's IP address in your router so it remains reachable.
 
 ## Available entities
 
-With control enabled, the app provides 20 entities covering:
+With control enabled, the app provides 21 entities covering:
 
 - Water temperature, outdoor temperature and humidity, and temperature targets.
 - Off, Temper, and Comfort operating modes, plus Comfort target adjustment.
+- A Comfort thermostat with water temperature and 0.5 °C target adjustment.
 - Timed lighting, mood lighting, aeration, massage, and manual circulation.
 - Circulation and heating status, fault indications, and diagnostics.
 
 The Temper target is read-only. Heating and circulation output entities report
 status; they do not directly switch the heater or pump relays. Manual circulation
 is a timed request and may differ from the pump's combined operating status.
+
+Use **Comfort thermostat** in a Home Assistant thermostat card. Adjusting its
+target does not start heating; **Heat** selects Comfort and **Off** selects Off.
+In Temper mode this Comfort-only thermostat shows Off and keeps displaying the
+saved Comfort target. The separate operating mode entity shows the actual mode.
 
 ## Operation and updates
 

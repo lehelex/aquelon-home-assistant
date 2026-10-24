@@ -22,12 +22,12 @@ you want it to start automatically with Home Assistant.
 
 ## Entities and controls
 
-With control enabled, AQUELON Local provides 20 entities:
+With control enabled, AQUELON Local provides 21 entities:
 
 | Group | Entities |
 | --- | --- |
 | Measurements | Water temperature, outdoor temperature, outdoor humidity, active target, Temper target |
-| Controls | Operating mode and Comfort target temperature |
+| Controls | Comfort thermostat, operating mode and Comfort target temperature |
 | Timed switches | Lighting, mood lighting, aeration, massage, manual circulation |
 | Status | Control state, circulation output, heating output, fault, low water warning |
 | Diagnostics | Connection status, fault key, controller uptime |
@@ -35,6 +35,25 @@ With control enabled, AQUELON Local provides 20 entities:
 Comfort target adjustment uses 0.5 degrees Celsius steps from 30 to 43 degrees
 Celsius. The Temper target is read-only. Timed switches use the controller's
 configured automatic shutoff times.
+
+## Comfort thermostat
+
+Add the **Comfort thermostat** entity to a Home Assistant thermostat card for
+current water temperature and Comfort target adjustment in 0.5 °C steps
+(30–43 °C). Changing the target does not turn heating on. **Heat** selects
+Comfort mode; **Off** selects the controller's Off mode. The activity indicator
+uses the controller's reported heating output and is not an independent
+measurement of heater power.
+
+The thermostat is specifically for Comfort. It shows **Off** while the controller
+is in Temper mode, and continues to display the saved Comfort target. The separate
+**Operating mode** entity shows the actual Off / Temper / Comfort mode; that mode
+is also available in the thermostat's attributes. The Temper target remains
+read-only. Existing entities and their identifiers are preserved.
+
+The thermostat becomes unavailable when control authentication or required
+temperature readings are unavailable. Changes appear after controller readback;
+the card does not assume that a command succeeded.
 
 Manual circulation is a timed request. Turning that request off does not cancel
 other circulation demands. Heating and circulation output sensors show commanded

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.3
+
+- Added a Comfort thermostat with current water temperature and 0.5 °C target adjustment.
+- Added Heat/Off control and confirmed heating activity, preserving existing entities.
+- Kept Temper setpoint read-only and all existing command protections.
+
 ## 0.2.1
 
 - Added the AQUELON Home Assistant app repository and installation guide.

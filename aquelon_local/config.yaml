@@ -1,5 +1,5 @@
 name: AQUELON Local
-version: "0.2.1"
+version: "0.2.3"
 slug: aquelon_local
 description: Local AQUELON controller integration with automatic MQTT discovery
 url: https://github.com/lehelex/aquelon-home-assistant
